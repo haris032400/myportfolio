@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>M. Haris — ML Engineer</title>
+  <meta name="description" content="M. Haris — Machine Learning Engineer portfolio" />
+  <style>
+    :root{
+      --bg:#041826; 
+      --panel:#082633; 
+      --accent:#19a7d9; 
+      --muted:#7da6b3; 
+      --glass: rgba(255,255,255,0.03); 
+      --card-grad: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); 
+      --radius:14px; 
+      --max-width:1100px; 
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html, body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(90deg,var(--bg),#012233 60%);
+      color:#dceff4;
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:36px 20px;
+      display:grid;
+      gap:34px;
+    }
+
+    /* ---------- Header ---------- */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:16px;
+    }
+    nav ul{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    nav a{
+      color:var(--muted);
+      font-weight:600;
+      padding:6px 8px;
+      border-radius:6px;
+    }
+    nav a:hover, nav a.active{
+      color:var(--accent);
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:28px;
+      align-items:center;
+    }
+    .intro h1{
+      font-family: Georgia, serif;
+      font-size:56px;
+      margin:0 0 6px;
+      color:#eaf9ff;
+    }
+    .intro .title{
+      font-size:20px;
+      color:var(--accent);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    .intro p.bio{
+      color:var(--muted);
+      line-height:1.65;
+      min-height:3.2em;
+      margin:0 0 18px;
+    }
+    .cv-btn{
+      display:inline-block;
+      background:var(--accent);
+      color:#012;
+      padding:12px 22px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      margin-bottom:18px;
+      box-shadow:0 8px 26px rgba(25,167,217,0.14);
+    }
+
+    /* photo smaller */
+    .photo-wrap{
+      padding:10px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(9,44,58,0.36), rgba(3,15,24,0.6));
+      height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+    }
+    .photo{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:12px;
+      background: linear-gradient(90deg,#08313a,#011827)
+    }
+    .social-row{
+      display:flex;
+      gap:12px;
+      margin-top:8px;
+    }
+    .social-btn{
+      width:44px;
+      height:44px;
+      border-radius:999px;
+      border:2px solid rgba(25,167,217,0.12);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      cursor:pointer;
+    }
+    .social-btn svg{
+      width:20px;
+      height:20px;
+      fill:var(--accent);
+    }
+
+    /* ---------- Sections ---------- */
+    section{
+      padding:36px;
+      border-radius:12px;
+      background:var(--glass);
+      backdrop-filter:blur(6px);
+      box-shadow:0 6px 20px rgba(2,10,14,0.6);
+    }
+    section h2{
+      margin-top:0;
+      color:#eaf9ff;
+    }
+
+    /* larger About box */
+    #about{
+      padding:60px 36px;
+    }
+    .about p{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+      font-size:16px;
+    }
+
+    /* Skills centered */
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(2,200px);
+      justify-content:center;
+      gap:18px 30px;
+    }
+    .skill{
+      padding:12px 16px;
+      background:rgba(255,255,255,0.04);
+      border-radius:10px;
+      font-weight:600;
+      color:#eaf9ff;
+      text-align:center;
+      font-family:var(--sans);
+    }
+
+    /* Certifications 3 + 2 layout */
+    .grid-cards{
+      display:grid;
+      gap:16px;
+    }
+    #certifications .grid-cards{
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    }
+    #certifications .card:nth-child(1),
+    #certifications .card:nth-child(2),
+    #certifications .card:nth-child(3){
+      grid-row:1;
+    }
+
+    /* Projects single column */
+    #projects .grid-cards{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      justify-items:center;
+    }
+    #projects .card{
+      max-width:400px;
+      width:100%;
+    }
+    .card{
+      background:var(--card-grad);
+      border-radius:12px;
+      padding:8px;
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .card img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:8px;
+    }
+    .card-title{
+      font-size:14px;
+      color:#e8fbff;
+      text-align:center;
+      padding:6px 8px;
+    }
+
+    /* Animation */
+    .animate-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.5s ease-out;
+    }
+    
+    .animate-left.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .photo-wrap{height:260px}
+      .intro h1{font-size:44px}
+    }
+    @media (max-width:520px){
+      .skills-grid{grid-template-columns:1fr}
+      nav ul{gap:10px;overflow:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="animate-left">
+      <nav>
+        <ul>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero" id="home">
+      <div class="intro animate-left">
+        <h1>M. Haris</h1>
+        <div class="title">AI/ML Engineer</div>
+        <p class="bio">
+          With expertise in machine learning, deep learning, and data-driven problem solving, I design and deploy scalable AI systems that make a real impact. I enjoy exploring new technologies, optimizing models, and bridging the gap between research and real-world applications.
+        </p>
+        <a class="cv-btn" id="cvBtn" href="hariscv.pdf" target="_blank">View Resume</a>
+        <div class="social-row">
+          <a class="social-btn" id="linkedin" href="https://www.linkedin.com/in/muhammad-haris-7976591b1" target="_blank" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.7-1.3 2.5-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.8V24H18.9v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24H7.5V8z"/></svg>
+          </a>
+          <a class="social-btn" id="whatsapp" href="https://wa.me/923240017239" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.373 0 .053 4.963.053 11.09c0 1.952.5 3.857 1.45 5.55L0 24l7.62-1.98A11.96 11.96 0 0012 22.18c6.627 0 12-4.963 12-11.09 0-3.01-1.17-5.8-3.5-7.59zM12 20.18c-1.63 0-3.21-.43-4.6-1.25l-.33-.19-4.53 1.17 1.2-4.42-.21-.36A8.93 8.93 0 013.05 11.1c0-4.94 4.03-8.95 9-8.95 4.96 0 9 4.01 9 8.95S16.96 20.18 12 20.18z"/></svg>
+          </a>
+          <a class="social-btn" id="email" href="mailto:haris7658058@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="photo-wrap animate-left">
+        <img class="photo" src="haris.jpeg" alt="M. Haris portrait" />
+      </div>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" class="animate-left">
+      <h2>About</h2>
+      <div class="about">
+        <p>
+          As an AI/ML Engineer, I specialize in developing end-to-end machine learning pipelines — from data preprocessing and feature engineering to model deployment and optimization. My work focuses on creating intelligent systems that deliver actionable insights and automation across diverse domains. I’m skilled in Python, TensorFlow, Pandas and Numpy. I’m continuously learning and experimenting with emerging AI trends to push the boundaries of what’s possible. My goal is to craft impactful AI solutions that enhance decision-making and improve lives.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="animate-left">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill animate-left">Python</div>
+        <div class="skill animate-left">TensorFlow</div>
+        <div class="skill animate-left">Pandas</div>
+        <div class="skill animate-left">NumPy</div>
+        <div class="skill animate-left">Matplotlib</div>
+        <div class="skill animate-left">Feature Engineering</div>
+        <div class="skill animate-left">CNNs</div>
+        <div class="skill animate-left">RNNs</div>
+        <div class="skill animate-left">Scikit-Learn</div>
+        <div class="skill animate-left">Model Deployment</div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="animate-left">
+      <h2>Certifications</h2>
+      <div class="grid-cards">
+        <div class="card animate-left">
+          <a href="https://www.coursera.org/account/accomplishments/professional-cert/TK97TKDQI7EZ" target="_blank"><img src="cer5.png" alt="ML Engineer Certificate" /></a>
+          <div class="card-title">ML Engineer</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/3W57KXPOLBGS" target="_blank"><img src="cer4.png" alt="Machine Learning Specialization" /></a>
+          <div class="card-title">Machine Learning Specialization</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/4OW7JE13OHJA" target="_blank"><img src="cer3.png" alt="Deep Learning Specialization" /></a>
+          <div class="card-title">Deep Learning Specialization</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/8XLPP5W0IRDH" target="_blank"><img src="cer2.png" alt="Python for Everybody" /></a>
+          <div class="card-title">Python for Everybody</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://www.coursera.org/account/accomplishments/professional-cert/MPH77M8PFZWT" target="_blank"><img src="cer1.png" alt="AI Developer Certificate" /></a>
+          <div class="card-title">AI Developer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="animate-left">
+      <h2>Projects</h2>
+      <div class="grid-cards">
+        <div class="card animate-left">
+          <a href="https://housepriceped-mye6mjwvztt4futzunnekk.streamlit.app" target="_blank"><img src="pro1.png" alt="House Price Prediction" /></a>
+          <div class="card-title">House Price Prediction</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://studentgradepred-8esrkmjdbagjtrxwzcfqc7.streamlit.app" target="_blank"><img src="pro2.png" alt="Student Grade Prediction" /></a>
+          <div class="card-title">Student Grade Prediction</div>
+        </div>
+        <div class="card animate-left">
+          <a href="https://helmetclassification-aamifzyrxgwb88ohdn9kdg.streamlit.app" target="_blank"><img src="pro3.png" alt="Helmet Classification" /></a>
+          <div class="card-title">Helmet Classification</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+ const animatedElements = document.querySelectorAll('.animate-left');
+
+function isElementInView(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom >= 0
+  );
+}
+
+function animateElements() {
+  animatedElements.forEach((element, index) => {
+    if (isElementInView(element)) {
+      element.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateElements);
+window.addEventListener('load', animateElements);
+
+animatedElements.forEach((element, index) => {
+  if (index < 10) {
+    element.style.transitionDelay = `${index * 0.01}s`;
+  } else {
+    element.style.transitionDelay = `${0.1 + (index - 10) * 0.01}s`;
+  }
+});
+  </script>
+</body>
+</html>
