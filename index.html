@@ -180,7 +180,7 @@
       font-family:var(--sans);
     }
 
-    /* Certifications 3 + 2 layout */
+    /* Certifications grid */
     .grid-cards{
       display:grid;
       gap:16px;
@@ -188,13 +188,8 @@
     #certifications .grid-cards{
       grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     }
-    #certifications .card:nth-child(1),
-    #certifications .card:nth-child(2),
-    #certifications .card:nth-child(3){
-      grid-row:1;
-    }
 
-    /* Projects single column (desktop max 400px width) */
+    /* Projects single column desktop (centered cards) */
     #projects .grid-cards{
       display:grid;
       grid-template-columns:1fr;
@@ -205,6 +200,7 @@
       max-width:400px;
       width:100%;
     }
+
     .card{
       background:var(--card-grad);
       border-radius:12px;
@@ -251,7 +247,7 @@
       nav ul{gap:10px;overflow:auto}
     }
 
-    /* --- Extra Mobile Adjustments (no desktop change) --- */
+    /* --- Extra Mobile Adjustments --- */
     @media (max-width:520px){
 
       .hero {
@@ -315,14 +311,15 @@
     @media (max-width: 520px) {
       #certifications .grid-cards,
       #projects .grid-cards {
-        grid-template-columns: 1fr !important; /* force single column */
-        justify-items: center;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
       }
 
       #certifications .card,
       #projects .card {
-        max-width: 100%;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
       }
     }
   </style>
@@ -347,17 +344,17 @@
         <h1>M. Haris</h1>
         <div class="title">AI/ML Engineer</div>
         <p class="bio">
-          With expertise in machine learning, deep learning, and data-driven problem solving, I design and deploy scalable AI systems that make a real impact. I enjoy exploring new technologies, optimizing models, and bridging the gap between research and real-world applications.
+          With expertise in machine learning, deep learning, and data-driven problem solving, I design and deploy scalable AI systems that make a real impact.
         </p>
-        <a class="cv-btn" id="cvBtn" href="hariscv.pdf" target="_blank">View Resume</a>
+        <a class="cv-btn" href="hariscv.pdf" target="_blank">View Resume</a>
         <div class="social-row">
-          <a class="social-btn" id="linkedin" href="https://www.linkedin.com/in/muhammad-haris-7976591b1" target="_blank" title="LinkedIn">
+          <a class="social-btn" href="https://www.linkedin.com/in/muhammad-haris-7976591b1" target="_blank" title="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.7-1.3 2.5-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.8V24H18.9v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24H7.5V8z"/></svg>
           </a>
-          <a class="social-btn" id="whatsapp" href="https://wa.me/923240017239" title="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.373 0 .053 4.963.053 11.09c0 1.952.5 3.857 1.45 5.55L0 24l7.62-1.98A11.96 11.96 0 0012 22.18c6.627 0 12-4.963 12-11.09 0-3.01-1.17-5.8-3.5-7.59zM12 20.18c-1.63 0-3.21-.43-4.6-1.25l-.33-.19-4.53 1.17 1.2-4.42-.21-.36A8.93 8.93 0 013.05 11.1c0-4.94 4.03-8.95 9-8.95 4.96 0 9 4.01 9 8.95S16.96 20.18 12 20.18z"/></svg>
+          <a class="social-btn" href="https://wa.me/923240017239" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.373 0 .053 4.963.053 11.09c0 1.952.5 3.857 1.45 5.55L0 24l7.62-1.98A11.96 11.96 0 0012 22.18c6.627 0 12-4.963 12-11.09 0-3.01-1.17-5.8-3.5-7.59z"/></svg>
           </a>
-          <a class="social-btn" id="email" href="mailto:haris7658058@gmail.com" title="Email">
+          <a class="social-btn" href="mailto:haris7658058@gmail.com" title="Email">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
         </div>
@@ -372,7 +369,7 @@
       <h2>About</h2>
       <div class="about">
         <p>
-          As an AI/ML Engineer, I specialize in developing end-to-end machine learning pipelines — from data preprocessing and feature engineering to model deployment and optimization. My work focuses on creating intelligent systems that deliver actionable insights and automation across diverse domains. I’m skilled in Python, TensorFlow, Pandas and Numpy. I’m continuously learning and experimenting with emerging AI trends to push the boundaries of what’s possible. My goal is to craft impactful AI solutions that enhance decision-making and improve lives.
+          As an AI/ML Engineer, I specialize in developing end-to-end machine learning pipelines — from data preprocessing and feature engineering to model deployment and optimization.
         </p>
       </div>
     </section>
@@ -398,26 +395,11 @@
     <section id="certifications" class="animate-left">
       <h2>Certifications</h2>
       <div class="grid-cards">
-        <div class="card animate-left">
-          <a href="https://www.coursera.org/account/accomplishments/professional-cert/TK97TKDQI7EZ" target="_blank"><img src="cer5.PNG" alt="ML Engineer Certificate" /></a>
-          <div class="card-title">ML Engineer</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://www.coursera.org/account/accomplishments/specialization/3W57KXPOLBGS" target="_blank"><img src="cer4.PNG" alt="Machine Learning Specialization" /></a>
-          <div class="card-title">Machine Learning Specialization</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://www.coursera.org/account/accomplishments/specialization/4OW7JE13OHJA" target="_blank"><img src="cer3.PNG" alt="Deep Learning Specialization" /></a>
-          <div class="card-title">Deep Learning Specialization</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://www.coursera.org/account/accomplishments/specialization/8XLPP5W0IRDH" target="_blank"><img src="cer2.PNG" alt="Python for Everybody" /></a>
-          <div class="card-title">Python for Everybody</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://www.coursera.org/account/accomplishments/professional-cert/MPH77M8PFZWT" target="_blank"><img src="cer1.PNG" alt="AI Developer Certificate" /></a>
-          <div class="card-title">AI Developer</div>
-        </div>
+        <div class="card animate-left"><img src="cer5.PNG" alt="ML Engineer Certificate" /><div class="card-title">ML Engineer</div></div>
+        <div class="card animate-left"><img src="cer4.PNG" alt="Machine Learning Specialization" /><div class="card-title">Machine Learning Specialization</div></div>
+        <div class="card animate-left"><img src="cer3.PNG" alt="Deep Learning Specialization" /><div class="card-title">Deep Learning Specialization</div></div>
+        <div class="card animate-left"><img src="cer2.PNG" alt="Python for Everybody" /><div class="card-title">Python for Everybody</div></div>
+        <div class="card animate-left"><img src="cer1.PNG" alt="AI Developer Certificate" /><div class="card-title">AI Developer</div></div>
       </div>
     </section>
 
@@ -425,52 +407,28 @@
     <section id="projects" class="animate-left">
       <h2>Projects</h2>
       <div class="grid-cards">
-        <div class="card animate-left">
-          <a href="https://housepriceped-mye6mjwvztt4futzunnekk.streamlit.app" target="_blank"><img src="pro1.PNG" alt="House Price Prediction" /></a>
-          <div class="card-title">House Price Prediction</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://studentgradepred-8esrkmjdbagjtrxwzcfqc7.streamlit.app" target="_blank"><img src="pro2.PNG" alt="Student Grade Prediction" /></a>
-          <div class="card-title">Student Grade Prediction</div>
-        </div>
-        <div class="card animate-left">
-          <a href="https://helmetclassification-aamifzyrxgwb88ohdn9kdg.streamlit.app" target="_blank"><img src="pro3.PNG" alt="Helmet Classification" /></a>
-          <div class="card-title">Helmet Classification</div>
-        </div>
+        <div class="card animate-left"><img src="pro1.PNG" alt="House Price Prediction" /><div class="card-title">House Price Prediction</div></div>
+        <div class="card animate-left"><img src="pro2.PNG" alt="Student Grade Prediction" /><div class="card-title">Student Grade Prediction</div></div>
+        <div class="card animate-left"><img src="pro3.PNG" alt="Helmet Classification" /><div class="card-title">Helmet Classification</div></div>
       </div>
     </section>
 
   </div>
 
   <script>
- const animatedElements = document.querySelectorAll('.animate-left');
-
-function isElementInView(element) {
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.bottom >= 0
-  );
-}
-
-function animateElements() {
-  animatedElements.forEach((element, index) => {
-    if (isElementInView(element)) {
-      element.classList.add('show');
+    const animatedElements = document.querySelectorAll('.animate-left');
+    function isElementInView(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top <= window.innerHeight && rect.bottom >= 0;
     }
-  });
-}
-
-window.addEventListener('scroll', animateElements);
-window.addEventListener('load', animateElements);
-
-animatedElements.forEach((element, index) => {
-  if (index < 10) {
-    element.style.transitionDelay = `${index * 0.01}s`;
-  } else {
-    element.style.transitionDelay = `${0.1 + (index - 10) * 0.01}s`;
-  }
-});
+    function animateElements() {
+      animatedElements.forEach(el => {
+        if (isElementInView(el)) el.classList.add('show');
+      });
+    }
+    window.addEventListener('scroll', animateElements);
+    window.addEventListener('load', animateElements);
   </script>
 </body>
 </html>
+
