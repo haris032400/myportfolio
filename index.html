@@ -189,17 +189,23 @@
       grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     }
 
-    /* Projects single column desktop (centered cards) */
+    /* Projects layout: 2-2-1 (desktop) */
     #projects .grid-cards{
       display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns:repeat(2, 1fr);
       gap:20px;
-      justify-items:center;
     }
+
     #projects .card{
-      max-width:400px;
+      max-width:520px;
       width:100%;
-    }
+      justify-self:center;
+}
+
+/* Center last project in third row */
+#projects .card:last-child{
+  grid-column:1 / -1;
+}
 
     .card{
       background:var(--card-grad);
@@ -213,8 +219,8 @@
     }
     .card img{
       width:100%;
-      height:120px;
-      object-fit:cover;
+      height:180px;
+      object-fit:contain;
       border-radius:8px;
     }
     .card-title{
@@ -369,7 +375,7 @@
       <h2>About</h2>
       <div class="about">
         <p>
-         I am an AI/ML Engineer specializing in end-to-end machine learning pipelines — from data preprocessing and feature engineering to model development, deployment, and optimization. Skilled in Python, TensorFlow, PyTorch, and scikit-learn, I build scalable, production-ready AI solutions that turn data into actionable insights.
+         I am an AI/ML Engineer specializing in end-to-end machine learning pipelines — from data preprocessing and feature engineering to model development, deployment, and optimization. Skilled in Python, TensorFlow, PyTorch, RAG, LLMs,  and Scikit-learn, I build scalable, production-ready AI solutions that turn data into actionable insights.
         </p>
       </div>
     </section>
@@ -384,10 +390,12 @@
         <div class="skill animate-left">NumPy</div>
         <div class="skill animate-left">Matplotlib</div>
         <div class="skill animate-left">Feature Engineering</div>
+        <div class="skill animate-left">RAG</div>
+        <div class="skill animate-left">LLMs</div> 
         <div class="skill animate-left">CNNs</div>
         <div class="skill animate-left">RNNs</div>
         <div class="skill animate-left">Scikit-Learn</div>
-        <div class="skill animate-left">Model Deployment</div>
+        <div class="skill animate-left">Model Deployment</div>       
       </div>
     </section>
 
@@ -415,6 +423,10 @@
           <img src="cer1.PNG" alt="AI Developer Certificate" />
           <div class="card-title">AI Developer</div>
         </a>
+        <a class="card animate-left" href="https://www.coursera.org/account/accomplishments/specialization/ZDUNX919GRF4" target="_blank">
+          <img src="cer6.PNG" alt="Gen AI Engineering with LLMs" />
+          <div class="card-title">Gen AI Engineering with LLMs</div>
+        </a>
       </div>
     </section>
 
@@ -426,13 +438,21 @@
           <img src="pro1.PNG" alt="House Price Prediction" />
           <div class="card-title">House Price Prediction</div>
         </a>
-        <a class="card animate-left" href="https://studentgradepred-8esrkmjdbagjtrxwzcfqc7.streamlit.app" target="_blank">
-          <img src="pro2.PNG" alt="Student Grade Prediction" />
-          <div class="card-title">Student Grade Prediction</div>
+        <a class="card animate-left" href="https://github.com/haris032400/RAG_BasedChatbot" target="_blank">
+          <img src="pro4.PNG" alt="RAG Based Chatbot For Watches Store" />
+          <div class="card-title">RAG Based Chatbot For Watches Store</div>
         </a>
         <a class="card animate-left" href="https://helmetclassification-aamifzyrxgwb88ohdn9kdg.streamlit.app/" target="_blank">
           <img src="pro3.PNG" alt="Helmet Classification" />
           <div class="card-title">Helmet Classification</div>
+        </a>
+        <a class="card animate-left" href="https://studentgradepred-8esrkmjdbagjtrxwzcfqc7.streamlit.app" target="_blank">
+          <img src="pro2.PNG" alt="Student Grade Prediction" />
+          <div class="card-title">Student Grade Prediction</div>
+        </a>
+        <a class="card animate-left" href="https://github.com/haris032400/digitclassifer" target="_blank">
+          <img src="pro5.PNG" alt="Air Digit Classifier Model" />
+          <div class="card-title">Air Digit Classifier Model</div>
         </a>
       </div>
     </section>
@@ -455,4 +475,5 @@
   </script>
 </body>
 </html>
+
 
